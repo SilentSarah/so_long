@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:25:59 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/07 15:36:37 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/12 12:07:00 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	*ft_memset(void *b, int c, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 size_t	countdelims(char const *s, char c);
-
+char	*ft_strchr(const char *s, int c);
+char	*ft_itoa(int n);
 #endif

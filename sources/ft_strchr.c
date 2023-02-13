@@ -6,11 +6,11 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:23:11 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/08 17:14:55 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/11 16:34:27 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "ft_printf.h"
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 14:52:56 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/11 16:33:56 by hmeftah          ###   ########.fr       */
+/*   Created: 2023/02/11 14:40:40 by hmeftah           #+#    #+#             */
+/*   Updated: 2023/02/11 16:53:16 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "so_long_bonus.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	main(int argc, char **argv)
 {
-	unsigned long	i;
+	t_mlx	mlx;
+	t_map	map_data;
+	t_data	tools;
 
-	i = 0;
-	if (n == 0)
+	if (argc != 2)
 		return (0);
-	while (i < n)
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		if (s1[i] == '\0' || s2[i] == '\0')
-			return (0);
-		i++;
-	}
+	initialize_data(&tools, &map_data);
+	check_map_extension(argv[1], &tools);
+	tools.matrix = extract_map(argv[1], &tools, open_map);
+	check_map_elements(&tools, &map_data, &mlx);
+	find_resolution(&tools, &mlx);
+	initiate_window(&mlx, &tools);
 	return (0);
 }

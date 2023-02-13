@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parser.c                                       :+:      :+:    :+:   */
+/*   map_parser_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:17:20 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/10 11:54:13 by hmeftah          ###   ########.fr       */
+/*   Created: 2023/02/11 14:40:38 by hmeftah           #+#    #+#             */
+/*   Updated: 2023/02/11 17:45:00 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	check_map_extension(char *map_name, t_data *tools)
 {
@@ -26,27 +26,13 @@ void	check_map_extension(char *map_name, t_data *tools)
 
 void	check_map_elements(t_data *tools, t_map *map_data, t_mlx *mlx)
 {
-	int	i;
-	int	j;
-
-	i = -1;
 	ft_printf("[❗]Checking Map Elements...\n");
-	while (++i < tools->height)
-	{
-		j = -1;
-		while (tools->matrix[i][++j])
-		{
-			if (tools->matrix[i][j] == 'E')
-				map_data->exits += 1;
-			else if (tools->matrix[i][j] == 'P')
-				map_data->players += 1;
-			else if (tools->matrix[i][j] == 'C')
-				map_data->coins += 1;
-		}
-	}
+	analyse_map(tools, map_data);
 	if ((map_data->coins <= 0 || map_data->players < 1 || map_data->exits < 1)
 		|| map_data->players > 1 || map_data->exits > 1)
 		print_error(2, tools);
+	if (map_data->enemies <= 0)
+		ft_printf("[❗]WARNING: Map has no enemy placements!\n");
 	mlx->map_data = map_data;
 	check_map_dimensions(tools);
 }

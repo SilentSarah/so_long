@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 11:00:30 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:18:21 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,57 @@
 # define MLX_ERROR "[❌]Error: Cannot connect to the display!\n"
 
 // MAP ITEMS
-# define COIN_DIR "../textures/Coins/Coin.xpm"
-# define EXIT_DIR "../textures/Exit/Door.xpm"
+# define COIN_DIR "./textures/Coins/Coin.xpm"
+# define EXIT_DIR "./textures/Exit/Door.xpm"
 
 //MOVING GROUND
-# define FLOOR_DIR "../textures/Floor/Floor.xpm"
+# define FLOOR_DIR "./textures/Floor/Floor.xpm"
 
 //WALLS ARE LISTENING
-# define WALL_DIR "../textures/Walls/Wall.xpm"
+# define WALL_DIR "./textures/Walls/Wall.xpm"
 
 //Health for the player
-# define H_FULL "../textures/Bonus/Health/Hearts.xpm"
-# define H_MID "../textures/Bonus/Health/Heart_mid.xpm"
-# define H_LOW "../textures/Bonus/Health/Heart_low.xpm"
+# define H_FULL "./textures/Bonus/Health/Hearts.xpm"
+# define H_MID "./textures/Bonus/Health/Heart_mid.xpm"
+# define H_LOW "./textures/Bonus/Health/Heart_low.xpm"
 
 //PLAYER
-# define PLAYER_DIR1 "../textures/Bonus/Player/PF_1.xpm"
-# define PLAYER_DIR2 "../textures/Bonus/Player/PF_2.xpm"
-# define PLAYER_DIR3 "../textures/Bonus/Player/PF_3.xpm"
-# define PLAYER_DIR4 "../textures/Bonus/Player/PF_4.xpm"
-# define PLAYER_DIR5 "../textures/Bonus/Player/PF_5.xpm"
-# define PLAYER_DIR6 "../textures/Bonus/Player/PF_6.xpm"
-# define PLAYER_DIR7 "../textures/Bonus/Player/PF_7.xpm"
-# define PLAYER_DIR8 "../textures/Bonus/Player/PF_8.xpm"
-# define PLAYER_DIR9 "../textures/Bonus/Player/PF_9.xpm"
-# define PLAYER_DIRX "../textures/Bonus/Player/PF_X.xpm"
+# define PLAYER_DIR1 "./textures/Bonus/Player/PF_1.xpm"
+# define PLAYER_DIR2 "./textures/Bonus/Player/PF_2.xpm"
+# define PLAYER_DIR3 "./textures/Bonus/Player/PF_3.xpm"
+# define PLAYER_DIR4 "./textures/Bonus/Player/PF_4.xpm"
+# define PLAYER_DIR5 "./textures/Bonus/Player/PF_5.xpm"
+# define PLAYER_DIR6 "./textures/Bonus/Player/PF_6.xpm"
+# define PLAYER_DIR7 "./textures/Bonus/Player/PF_7.xpm"
+# define PLAYER_DIR8 "./textures/Bonus/Player/PF_8.xpm"
+# define PLAYER_DIR9 "./textures/Bonus/Player/PF_9.xpm"
+# define PLAYER_DIRX "./textures/Bonus/Player/PF_X.xpm"
 
 //Running Animation for the player
-# define R_F1 "../textures/Bonus/player/R_F1.xpm"
-# define R_F2 "../textures/Bonus/player/R_F2.xpm"
-# define R_F3 "../textures/Bonus/player/R_F3.xpm"
-# define R_F4 "../textures/Bonus/player/R_F4.xpm"
-# define R_F5 "../textures/Bonus/player/R_F5.xpm"
-# define R_F6 "../textures/Bonus/player/R_F6.xpm"
-# define R_F7 "../textures/Bonus/player/R_F7.xpm"
-# define R_F8 "../textures/Bonus/player/R_F8.xpm"
-# define R_F9 "../textures/Bonus/player/R_F9.xpm"
-# define R_FX "../textures/Bonus/player/R_FX.xpm"
+# define R_F1 "./textures/Bonus/player/R_F1.xpm"
+# define R_F2 "./textures/Bonus/player/R_F2.xpm"
+# define R_F3 "./textures/Bonus/player/R_F3.xpm"
+# define R_F4 "./textures/Bonus/player/R_F4.xpm"
+# define R_F5 "./textures/Bonus/player/R_F5.xpm"
+# define R_F6 "./textures/Bonus/player/R_F6.xpm"
+# define R_F7 "./textures/Bonus/player/R_F7.xpm"
+# define R_F8 "./textures/Bonus/player/R_F8.xpm"
+# define R_F9 "./textures/Bonus/player/R_F9.xpm"
+# define R_FX "./textures/Bonus/player/R_FX.xpm"
 
 //ENEMY
-# define ENEMY_DIR1 "../textures/Bonus/Enemy/EF_1.xpm"
-# define ENEMY_DIR2 "../textures/Bonus/Enemy/EF_2.xpm"
-# define ENEMY_DIR3 "../textures/Bonus/Enemy/EF_3.xpm"
-# define ENEMY_DIR4 "../textures/Bonus/Enemy/EF_4.xpm"
-# define ENEMY_DIR5 "../textures/Bonus/Enemy/EF_5.xpm"
-# define ENEMY_DIR6 "../textures/Bonus/Enemy/EF_6.xpm"
+# define ENEMY_DIR1 "./textures/Bonus/Enemy/EF_1.xpm"
+# define ENEMY_DIR2 "./textures/Bonus/Enemy/EF_2.xpm"
+# define ENEMY_DIR3 "./textures/Bonus/Enemy/EF_3.xpm"
+# define ENEMY_DIR4 "./textures/Bonus/Enemy/EF_4.xpm"
+# define ENEMY_DIR5 "./textures/Bonus/Enemy/EF_5.xpm"
+# define ENEMY_DIR6 "./textures/Bonus/Enemy/EF_6.xpm"
 
 //Enemy Death Sprite
-# define EXPL_DTH "../textures/Bonus/Explosion/Explosion.xpm"
+# define EXPL_DTH "./textures/Bonus/Explosion/Explosion.xpm"
 
 //GAME OVER SPRITE
-# define G_O "../textures/Bonus/GameOver/GameOver.xpm"
+# define G_O "./textures/Bonus/GameOver/GameOver.xpm"
 
 # define MAX_MAP_SIZE 1000000
 # define RES_MULTIPLIER 64

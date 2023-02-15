@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:39:06 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 10:52:52 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 11:20:41 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ bool	map_env_scan(int x, int y, t_textures *res)
 		}
 		else if (res->utils->matrix[y][x] == '0')
 			res->utils->matrix[y][x] = 'P';
+		else if (res->utils->matrix[y][x] == 'X')
+			enemy_reaction(res);
 		if (res->mlx_data->map_data->coins == 0)
 		{
 			if (res->utils->matrix[y][x] == 'E')

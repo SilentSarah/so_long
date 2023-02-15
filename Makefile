@@ -6,7 +6,7 @@
 #    By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 20:22:16 by hmeftah           #+#    #+#              #
-#    Updated: 2023/02/15 11:04:46 by hmeftah          ###   ########.fr        #
+#    Updated: 2023/02/15 18:30:49 by hmeftah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS = so_long_bonus
 
 LIB = libft.a
 
-CC = gcc
+CC = cc
 
 AR = ar -rcs
 
@@ -26,7 +26,7 @@ LIB_SRC = ./sources/ft_printf.c ./sources/ft_putadress.c ./sources/ft_putbase_fd
 		  ./sources/ft_bzero.c ./sources/ft_calloc.c ./sources/get_next_line.c ./sources/get_next_line_utils.c \
 		  ./sources/ft_strjoin.c ./sources/ft_strncmp.c ./sources/ft_strchr.c ./sources/ft_itoa.c
 		  
-SL_SRC = main.c map_parser.c map_utils.c general_utils.c texture_load_check.c load_map_textures.c game_hooks.c
+SL_SRC = main.c map_parser.c map_utils.c general_utils.c texture_load_check.c load_map_textures.c game_hooks.c map_utils_support.c
 
 SL_B_SRC = ./Bonus/main_bonus.c ./Bonus/map_parser_bonus.c ./Bonus/map_utils_bonus.c ./Bonus/general_utils_bonus.c ./Bonus/texture_load_check_bonus.c \
 		   ./Bonus/load_map_textures_bonus.c ./Bonus/game_hooks_bonus.c ./Bonus/map_parse_support.c ./Bonus/game_update_bonus.c ./Bonus/bot_path_bonus.c \

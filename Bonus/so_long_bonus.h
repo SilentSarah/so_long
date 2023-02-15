@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 11:18:21 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 15:23:52 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,4 +180,5 @@ void		health_system_check(t_textures *res);
 void		display_game_over_screen(t_textures *res);
 void		update_frames(t_textures *res, int *ticks);
 void		display_counters(t_textures *res);
+void		check_for_rdata_inside(char *raw_map, t_data *tools);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:17:04 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 10:55:43 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:49:11 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	render_frames(t_textures *res)
 		update_frames(res, &ticks);
 		if (ticks % 2500 == 0)
 			res->mlx_data->map_data->is_patrolling = bot_awareness(res);
-		if (ticks % 1000 == 0)
+		if (ticks % 3500 == 0)
 			if (!res->mlx_data->map_data->is_patrolling)
 				patrol_map(res, res->utils);
 		ticks++;

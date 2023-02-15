@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:49:48 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 10:49:52 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:49:51 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ bool	check_if_player_near_enemy(t_textures *res)
 {
 	find_enemy_pos(res->utils);
 	find_player_pos(res->utils);
-	if (res->utils->x >= res->utils->e_x - 5
-		&& res->utils->x <= res->utils->e_x + 5
-		&& res->utils->y <= res->utils->e_y + 5
-		&& res->utils->y >= res->utils->e_y - 5)
+	if (res->utils->x >= res->utils->e_x - 6
+		&& res->utils->x <= res->utils->e_x + 6
+		&& res->utils->y <= res->utils->e_y + 7
+		&& res->utils->y >= res->utils->e_y - 7)
 		return (true);
 	return (false);
 }

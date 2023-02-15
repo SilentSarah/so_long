@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:42 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/11 14:45:20 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:44:07 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void	free_2d_arr(char **matrix, int len)
 
 	i = -1;
 	while (++i < len)
-		free (matrix[i]);
-	free (matrix);
+		if (matrix[i])
+			free (matrix[i]);
+	if (matrix)
+		free (matrix);
 }
 
 void	initiate_window(t_mlx *mlx, t_data *tools)

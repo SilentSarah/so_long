@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:40:35 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/11 16:53:22 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:00:49 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	**extract_map(char *map_name, t_data *tools, int (*f)(char *, t_data *))
 	char	**matrix;
 
 	read(f(map_name, tools), t_string, MAX_MAP_SIZE);
+	check_for_rdata_inside(t_string, tools);
 	matrix = ft_split(t_string, '\n');
 	tools->height = (int)countdelims(t_string, '\n');
 	tools->length = (int)ft_strlen(matrix[0]);
@@ -40,7 +41,7 @@ char	**clone_map(t_data *tools)
 	char	**test_map;
 
 	i = -1;
-	test_map = (char **)malloc(sizeof(char *) * tools->height);
+	test_map = (char **)malloc(sizeof(char *) * (tools->height + 1));
 	if (!test_map)
 		free_2d_arr(tools->matrix, tools->height);
 	while (++i < tools->height)
@@ -84,8 +85,7 @@ void	find_player_pos(t_data *tools)
 
 void	flood_map(int x, int y, char **map, t_data *tools)
 {
-	if ((x >= tools->length) || (y >= tools->height)
-		|| (x <= 0) || (y <= 0) || (map[y][x] == '1'))
+	if (map[y][x] == '1')
 		return ;
 	map[y][x] = '1';
 	flood_map(x + 1, y, map, tools);

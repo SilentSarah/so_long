@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:40:33 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/14 19:25:02 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 16:28:58 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	find_resolution(t_data *tools, t_mlx *mlx)
 	mlx->h = tools->height * RES_MULTIPLIER;
 	mlx->w = tools->length * RES_MULTIPLIER;
 	ft_printf("Detected Resolution: %d x %d.\n", mlx->w, mlx->h);
-	if (mlx->w >= 5120 || mlx->h >= 2880)
+	if (mlx->w >= 3200 || mlx->h >= 1800)
 		print_error(5, tools);
 }
 

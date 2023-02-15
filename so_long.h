@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 11:06:14 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 12:43:05 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,5 @@ void		generate_map(t_data *tools, t_mlx *mlx);
 void		display_map_elements(t_data *tools, t_mlx *mlx, t_textures *res);
 int			key_response(int key_press, t_textures *res);
 int			destroy_game(t_textures *res);
+void		check_for_rdata_inside(char *raw_map, t_data *tools);
 #endif

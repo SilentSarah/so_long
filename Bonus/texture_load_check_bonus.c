@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:40:33 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/13 11:45:02 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/14 19:25:02 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ void	check_textures(t_data *tools)
 {
 	int			i;
 	int			fd_open;
-	static char	*textures[21] = {COIN_DIR, EXIT_DIR,
-		FLOOR_DIR, WALL_DIR, HEART_DIR, PLAYER_DIR1, PLAYER_DIR2, PLAYER_DIR3,
-		PLAYER_DIR4, PLAYER_DIR5, PLAYER_DIR6, PLAYER_DIR7,
-		PLAYER_DIR8, PLAYER_DIR9, PLAYER_DIRX, ENEMY_DIR1,
-		ENEMY_DIR2, ENEMY_DIR3, ENEMY_DIR4, ENEMY_DIR5, ENEMY_DIR6};
+	static char	*textures[35] = {COIN_DIR, EXIT_DIR,
+		FLOOR_DIR, WALL_DIR, H_FULL, H_MID, H_LOW, EXPL_DTH, PLAYER_DIR1,
+		PLAYER_DIR2, PLAYER_DIR3, PLAYER_DIR4, PLAYER_DIR5, PLAYER_DIR6,
+		PLAYER_DIR7, PLAYER_DIR8, PLAYER_DIR9, PLAYER_DIRX, ENEMY_DIR1,
+		ENEMY_DIR2, ENEMY_DIR3, ENEMY_DIR4, ENEMY_DIR5, ENEMY_DIR6,
+		R_F1, R_F2, R_F3, R_F4, R_F5, R_F6, R_F7, R_F8, R_F9, R_FX, G_O};
 
 	i = -1;
 	ft_printf("[❗]Checking game resources...\n");
-	while (++i < 21)
+	while (++i < 35)
 	{
 		fd_open = open(textures[i], O_RDONLY);
 		if (fd_open == -1)
@@ -51,14 +52,15 @@ t_textures	*load_textures_into_memory(t_data *tools, t_mlx *mlx)
 {
 	int					i;
 	static t_textures	res;
-	static char			*textures[21] = {COIN_DIR, EXIT_DIR,
-		FLOOR_DIR, WALL_DIR, HEART_DIR, PLAYER_DIR1, PLAYER_DIR2, PLAYER_DIR3,
-		PLAYER_DIR4, PLAYER_DIR5, PLAYER_DIR6, PLAYER_DIR7,
-		PLAYER_DIR8, PLAYER_DIR9, PLAYER_DIRX, ENEMY_DIR1,
-		ENEMY_DIR2, ENEMY_DIR3, ENEMY_DIR4, ENEMY_DIR5, ENEMY_DIR6};
+	static char			*textures[35] = {COIN_DIR, EXIT_DIR,
+		FLOOR_DIR, WALL_DIR, H_FULL, H_MID, H_LOW, EXPL_DTH, PLAYER_DIR1,
+		PLAYER_DIR2, PLAYER_DIR3, PLAYER_DIR4, PLAYER_DIR5, PLAYER_DIR6,
+		PLAYER_DIR7, PLAYER_DIR8, PLAYER_DIR9, PLAYER_DIRX, ENEMY_DIR1,
+		ENEMY_DIR2, ENEMY_DIR3, ENEMY_DIR4, ENEMY_DIR5, ENEMY_DIR6,
+		R_F1, R_F2, R_F3, R_F4, R_F5, R_F6, R_F7, R_F8, R_F9, R_FX, G_O};
 
 	i = -1;
-	while (++i < 21)
+	while (++i < 35)
 	{
 		res.txt[i] = mlx_xpm_file_to_image(mlx->init,
 				textures[i], &mlx->w, &mlx->h);

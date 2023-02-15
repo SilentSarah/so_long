@@ -6,7 +6,7 @@
 #    By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/10 20:22:16 by hmeftah           #+#    #+#              #
-#    Updated: 2023/02/13 12:53:20 by hmeftah          ###   ########.fr        #
+#    Updated: 2023/02/15 11:04:46 by hmeftah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ LIB_SRC = ./sources/ft_printf.c ./sources/ft_putadress.c ./sources/ft_putbase_fd
 		  
 SL_SRC = main.c map_parser.c map_utils.c general_utils.c texture_load_check.c load_map_textures.c game_hooks.c
 
-SL_B_SRC = main_bonus.c map_parser_bonus.c map_utils_bonus.c general_utils_bonus.c texture_load_check_bonus.c \
-		   load_map_textures_bonus.c game_hooks_bonus.c map_parse_support.c game_update_bonus.c bot_path_bonus.c \
-		   bot_to_path.c
+SL_B_SRC = ./Bonus/main_bonus.c ./Bonus/map_parser_bonus.c ./Bonus/map_utils_bonus.c ./Bonus/general_utils_bonus.c ./Bonus/texture_load_check_bonus.c \
+		   ./Bonus/load_map_textures_bonus.c ./Bonus/game_hooks_bonus.c ./Bonus/map_parse_support.c ./Bonus/game_update_bonus.c ./Bonus/bot_path_bonus.c \
+		   ./Bonus/bot_to_path.c ./Bonus/enemy_mechanics.c
 		   
 FLAGS = -Wall -Werror -Wextra
 
@@ -40,18 +40,20 @@ INCLUDES_B = -I so_long_bonus.h -I ./sources/ft_printf.h -I ./sources/get_next_l
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
-all: $(NAME)
+all: mand bonus
 
 $(LIB): $(LIB_SRC) $(LIB_SRC:.c=.o)
 	$(AR) $(LIB) $(LIB_SRC:.c=.o)
 
+mand: $(NAME)
+
 $(NAME): $(LIB) $(SL_SRC)
-	$(CC) $(FLAGS) $(INCLUDES) $(MLX) $(LIB) $(LIB_SRC) $(SL_SRC) -o $@
+	$(CC) $(FLAGS) $(INCLUDES) $(MLX) $(LIB) $(SL_SRC) -o $@
 
 bonus: $(BONUS)
 
 $(BONUS): $(LIB) $(SL_B_SRC)
-	$(CC) $(FLAGS) $(INCLUDES_B) $(MLX) $(LIB) $(LIB_SRC) $(SL_B_SRC) -o $@
+	$(CC) $(FLAGS) $(INCLUDES_B) $(MLX) $(LIB) $(SL_B_SRC) -o $@
 
 ./sources/%.o: ./sources/%.c
 	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:17:04 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/13 12:46:44 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 10:55:43 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	display_counters(t_textures *res)
 {
 	char		*smoves;
 	char		*coins;
-	const int	white = get_color(255, 255, 255, 255);
+	const int	white = get_color(128, 255, 255, 255);
 
 	smoves = ft_itoa(res->mlx_data->map_data->s_moves);
 	coins = ft_itoa(res->mlx_data->map_data->coins);
@@ -61,6 +61,11 @@ void	display_counters(t_textures *res)
 		0, 32, white, "Coins Left:");
 	mlx_string_put(res->mlx_data->init, res->mlx_data->win,
 		112, 32, white, coins);
+	mlx_put_image_to_window(res->mlx_data->init, res->mlx_data->win,
+		res->txt[heart + res->mlx_data->map_data->damage],
+		72, 56);
+	mlx_string_put(res->mlx_data->init, res->mlx_data->win,
+		0, 64, get_color(128, 255, 0, 0), "Health:");
 	free (smoves);
 	free (coins);
 }
@@ -68,26 +73,16 @@ void	display_counters(t_textures *res)
 int	render_frames(t_textures *res)
 {
 	static int	ticks;
-	int			i;
-	int			j;
 
-	if (ticks % 777 == 0)
+	if (res->mlx_data->map_data->players == 1)
 	{
-		i = -1;
-		while (res->utils->matrix[++i])
-		{
-			j = -1;
-			while (res->utils->matrix[i][++j])
-			{
-				display_counters(res);
-				refresh_sprites(res, j, i);
-			}
-		}
+		update_frames(res, &ticks);
+		if (ticks % 2500 == 0)
+			res->mlx_data->map_data->is_patrolling = bot_awareness(res);
+		if (ticks % 1000 == 0)
+			if (!res->mlx_data->map_data->is_patrolling)
+				patrol_map(res, res->utils);
+		ticks++;
 	}
-	if (ticks % 1800 == 0)
-		patrol_map(res, res->utils);
-	// if (ticks % 10000 == 0 && !bot_awareness(res))
-	// 	patrol_map(res, res->utils);
-	ticks++;
 	return (0);
 }

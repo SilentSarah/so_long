@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:39:06 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/13 11:45:40 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/15 10:52:52 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	destroy_game(t_textures *res)
 
 	i = -1;
 	ft_printf("[❗]Destorying Resources...\n");
-	while (++i < 21)
+	while (++i < 35)
 	{
 		ft_printf("[❗]Destroying Resource ID: %d\n", i);
 		mlx_destroy_image(res->mlx_data->init, res->txt[i]);
@@ -33,8 +33,20 @@ int	destroy_game(t_textures *res)
 
 void	enemy_reaction(t_textures *res)
 {
-	ft_printf("[❌]You lost, Game Over!\n");
-	destroy_game(res);
+	t_map		*map_data;
+
+	map_data = res->mlx_data->map_data;
+	find_player_pos(res->utils);
+	if (map_data->damage < 2)
+		health_system_check(res);
+	else
+	{
+		map_data->damage = 2;
+		map_data->players = 0;
+		ft_printf("[❌]You lost, Game Over!\n");
+		mlx_clear_window(res->mlx_data->init, res->mlx_data->win);
+		display_game_over_screen(res);
+	}
 }
 
 bool	map_env_scan(int x, int y, t_textures *res)
@@ -48,8 +60,6 @@ bool	map_env_scan(int x, int y, t_textures *res)
 		}
 		else if (res->utils->matrix[y][x] == '0')
 			res->utils->matrix[y][x] = 'P';
-		else if (res->utils->matrix[y][x] == 'X')
-			enemy_reaction(res);
 		if (res->mlx_data->map_data->coins == 0)
 		{
 			if (res->utils->matrix[y][x] == 'E')
@@ -81,11 +91,15 @@ bool	move_player(int direction, t_textures *res)
 
 int	key_response(int key_press, t_textures *res)
 {
-	find_player_pos(res->utils);
-	if (move_player(key_press, res))
+	if (res->mlx_data->map_data->players == 1)
 	{
-		res->utils->matrix[res->utils->oldpos[0]][res->utils->oldpos[1]] = '0';
-		ft_printf("Successful Move N:%d\n", ++res->mlx_data->map_data->s_moves);
+		find_player_pos(res->utils);
+		if (move_player(key_press, res))
+		{
+			res->utils->matrix[res->utils->oldpos[0]]
+			[res->utils->oldpos[1]] = '0';
+			++res->mlx_data->map_data->s_moves;
+		}
 	}
 	if (key_press == 53)
 		destroy_game(res);

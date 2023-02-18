@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:20 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/11 16:40:51 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:29:25 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void	check_map_elements(t_data *tools, t_map *map_data, t_mlx *mlx)
 		|| map_data->players > 1 || map_data->exits > 1 || map_data->rdata == 1)
 		print_error(2, tools);
 	mlx->map_data = map_data;
-	check_map_dimensions(tools);
+	check_map_dimensions(tools, map_data);
 }
 
-void	check_map_dimensions(t_data *tools)
+void	check_map_dimensions(t_data *tools, t_map *map_data)
 {
 	int	first_len;
 	int	i;
@@ -64,19 +64,20 @@ void	check_map_dimensions(t_data *tools)
 		if (first_len != (int)ft_strlen(tools->matrix[i]))
 			print_error(2, tools);
 	tools->length = ft_strlen(tools->matrix[0]);
-	check_map_walls(tools);
+	check_map_walls(tools, map_data);
 }
 
-void	check_map_validity(t_data *tools)
+void	check_map_validity(t_data *tools, t_map *map_data)
 {
 	char	**test_map;
 	bool	elements_left;
 
+	tools->t_coins = map_data->coins;
 	ft_printf("[❗]Finding a valid path in the map...\n");
 	test_map = clone_map(tools);
 	find_player_pos(tools);
 	flood_map(tools->x, tools->y, test_map, tools);
-	elements_left = check_remaining_items(test_map);
+	elements_left = check_remaining_items(test_map, tools);
 	if (elements_left)
 	{
 		free_2d_arr(test_map, tools->height);
@@ -86,7 +87,7 @@ void	check_map_validity(t_data *tools)
 	check_textures(tools);
 }
 
-void	check_map_walls(t_data *tools)
+void	check_map_walls(t_data *tools, t_map *map_data)
 {
 	int	i;
 	int	j;
@@ -109,5 +110,5 @@ void	check_map_walls(t_data *tools)
 		i++;
 	}
 	ft_printf("[✅]All map elements are in place.\n");
-	check_map_validity(tools);
+	check_map_validity(tools, map_data);
 }

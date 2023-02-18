@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:17:04 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 16:49:11 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 20:07:17 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	render_frames(t_textures *res)
 	if (res->mlx_data->map_data->players == 1)
 	{
 		update_frames(res, &ticks);
-		if (ticks % 2500 == 0)
+		if (ticks % 1200 == 0)
 			res->mlx_data->map_data->is_patrolling = bot_awareness(res);
 		if (ticks % 3500 == 0)
 			if (!res->mlx_data->map_data->is_patrolling)

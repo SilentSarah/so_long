@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:39:06 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/18 11:44:54 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 20:17:49 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ int	key_response(int key_press, t_textures *res)
 	}
 	if (key_press == 36)
 	{
-		if (res->mlx_data->map_data->players == 0
-			&& res->mlx_data->map_data->game_over == false)
+		if (res->mlx_data->map_data->game_over == false)
 			res->mlx_data->map_data->players = 1;
 	}
 	if (key_press == 53)

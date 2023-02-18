@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:13:53 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/18 11:49:58 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:53:46 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,9 @@ void	display_game_instructions(t_textures *res)
 {
 	res->mlx_data->map_data->players = 0;
 	mlx_clear_window(res->mlx_data->init, res->mlx_data->win);
-	mlx_put_image_to_window(res->mlx_data->init, res->mlx_data->win,
-		res->txt[35], (res->utils->length * 28), (res->utils->height * 39));
+	mlx_string_put(res->mlx_data->init, res->mlx_data->win,
+		(res->utils->length * 29), (res->utils->height * 12),
+		get_color(255, 255, 255, 255), "Welcome to so_long");
 	mlx_string_put(res->mlx_data->init, res->mlx_data->win,
 		(res->utils->length * 28), (res->utils->height * 48),
 		get_color(255, 255, 255, 255), "Press ENTER to start the game.");

@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/18 11:41:22 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:11:38 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,10 @@ typedef struct t_data {
 	int		e_oldpos[2];
 	int		oldpos[2];
 	bool	is_running;
+	int		t_coins;
+	int		ex;
+	int		ey;
+	bool	texit;
 }	t_data;
 
 typedef struct t_textures {
@@ -158,7 +162,7 @@ void		check_map_walls(t_data *tools);
 void		find_player_pos(t_data *tools);
 void		find_enemy_pos(t_data *tools);
 void		flood_map(int x, int y, char **map, t_data *tools);
-bool		check_remaining_items(char **test_map);
+bool		check_remaining_items(char **test_map, t_data *tool);
 char		*ft_strdup(const char *s1);
 void		check_textures(t_data *tools);
 void		find_resolution(t_data *tools, t_mlx *mlx);
@@ -186,4 +190,5 @@ void		update_frames(t_textures *res, int *ticks);
 void		display_counters(t_textures *res);
 void		check_for_rdata_inside(char *raw_map, t_data *tools);
 void		display_game_instructions(t_textures *res);
+void		find_exit_pos(t_data *tools);
 #endif

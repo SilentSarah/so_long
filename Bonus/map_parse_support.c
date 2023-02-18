@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:07:26 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 15:23:36 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:20:37 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	analyse_map(t_data *tools, t_map *map_data)
 				map_data->rdata = 1;
 		}
 	}
+	tools->t_coins = map_data->coins;
 }
 
 void	check_for_rdata_inside(char *raw_map, t_data *tools)
@@ -46,5 +47,26 @@ void	check_for_rdata_inside(char *raw_map, t_data *tools)
 	{
 		if (raw_map[i] == '\n' && raw_map[i + 1] == '\n')
 			print_error(2, tools);
+	}
+}
+
+void	find_exit_pos(t_data *tools)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while (tools->matrix[++y])
+	{
+		x = -1;
+		while (tools->matrix[y][++x])
+		{
+			if (tools->matrix[y][x] == 'E')
+			{
+				tools->ex = x;
+				tools->ey = y;
+				return ;
+			}
+		}
 	}
 }

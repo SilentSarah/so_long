@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:49:48 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 16:49:51 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 20:10:29 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ bool	check_if_player_near_enemy(t_textures *res)
 {
 	find_enemy_pos(res->utils);
 	find_player_pos(res->utils);
-	if (res->utils->x >= res->utils->e_x - 6
-		&& res->utils->x <= res->utils->e_x + 6
-		&& res->utils->y <= res->utils->e_y + 7
-		&& res->utils->y >= res->utils->e_y - 7)
+	if (res->utils->x >= res->utils->e_x - res->utils->length / 3
+		&& res->utils->x <= res->utils->e_x + res->utils->length / 3
+		&& res->utils->y <= res->utils->e_y + res->utils->height / 3
+		&& res->utils->y >= res->utils->e_y - res->utils->height / 3)
 		return (true);
 	return (false);
 }
@@ -50,10 +50,10 @@ void	move_enemy_to_player(t_textures *res, t_data *tools)
 {
 	if (tools->x > tools->e_x)
 		move_bot_left(tools);
-	else if (tools->x < tools->e_x)
-		move_bot_right(tools);
 	else if (tools->y < tools->e_y)
 		move_bot_up(tools);
+	else if (tools->x < tools->e_x)
+		move_bot_right(tools);
 	else if (tools->y > tools->e_y)
 		move_bot_down(tools);
 	find_enemy_pos(tools);

@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 12:43:05 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:29:46 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ typedef struct t_data {
 	int		x;
 	int		y;
 	int		oldpos[2];
+	int		t_coins;
+	int		ex;
+	int		ey;
+	bool	texit;
 }	t_data;
 
 typedef struct t_textures {
@@ -97,11 +101,11 @@ void		check_map_elements(t_data *tools, t_map *map_data, t_mlx *mlx);
 void		initialize_data(t_data *tools, t_map *map_data);
 char		**clone_map(t_data *tools);
 void		free_2d_arr(char **matrix, int len);
-void		check_map_dimensions(t_data *tools);
-void		check_map_walls(t_data *tools);
+void		check_map_dimensions(t_data *tools, t_map *map_data);
+void		check_map_walls(t_data *tools, t_map *map_data);
 void		find_player_pos(t_data *tools);
 void		flood_map(int x, int y, char **map, t_data *tools);
-bool		check_remaining_items(char **test_map);
+bool		check_remaining_items(char **test_map, t_data *tool);
 char		*ft_strdup(const char *s1);
 void		check_textures(t_data *tools);
 void		find_resolution(t_data *tools, t_mlx *mlx);
@@ -111,4 +115,5 @@ void		display_map_elements(t_data *tools, t_mlx *mlx, t_textures *res);
 int			key_response(int key_press, t_textures *res);
 int			destroy_game(t_textures *res);
 void		check_for_rdata_inside(char *raw_map, t_data *tools);
+void		find_exit_pos(t_data *tools);
 #endif

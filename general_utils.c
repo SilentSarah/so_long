@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:42 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 12:44:07 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:25:24 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,24 @@ void	initialize_data(t_data *tools, t_map *map_data)
 	map_data->coins = 0;
 	map_data->players = 0;
 	map_data->exits = 0;
+	tools->texit = false;
 }
 
-bool	check_remaining_items(char **test_map)
+bool	check_remaining_items(char **test_map, t_data *tools)
 {
 	int	i;
 
 	i = -1;
+	find_exit_pos(tools);
 	while (test_map[++i])
 	{
-		if (ft_strchr(test_map[i], 'C') || ft_strchr(test_map[i], 'E'))
+		if (ft_strchr(test_map[i], 'C'))
 			return (true);
+		if (ft_strchr(test_map[i], 'E'))
+		{
+			if (!tools->texit)
+				return (true);
+		}
 	}
 	ft_printf("[✅]Valid path has been found.\n");
 	return (false);

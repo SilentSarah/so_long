@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:40:38 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/11 17:45:00 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:20:53 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_map_validity(t_data *tools)
 	test_map = clone_map(tools);
 	find_player_pos(tools);
 	flood_map(tools->x, tools->y, test_map, tools);
-	elements_left = check_remaining_items(test_map);
+	elements_left = check_remaining_items(test_map, tools);
 	if (elements_left)
 	{
 		free_2d_arr(test_map, tools->height);

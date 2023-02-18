@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:42:06 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 13:35:00 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 19:25:30 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,20 @@ void	flood_map(int x, int y, char **map, t_data *tools)
 {
 	if (map[y][x] == '1')
 		return ;
+	if (map[y][x] == 'E')
+	{
+		if (tools->t_coins > 0)
+		{
+			tools->texit = true;
+			return ;
+		}
+	}
+	if (map[y][x] == 'C')
+		tools->t_coins--;
 	map[y][x] = '1';
 	flood_map(x + 1, y, map, tools);
 	flood_map(x - 1, y, map, tools);
 	flood_map(x, y + 1, map, tools);
 	flood_map(x, y - 1, map, tools);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 14:40:43 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 14:45:10 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 11:30:12 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	image_destroy(t_textures *res, t_mlx *mlx)
 	int	i;
 
 	i = -1;
-	while (++i < 35)
+	while (++i < 36)
 		if (res->txt[i])
 			mlx_destroy_image(mlx->init, res->txt[i]);
 }
@@ -63,7 +63,7 @@ void	update_frames(t_textures *res, int *ticks)
 	int	j;
 
 	i = -1;
-	if (*ticks % 360 == 0)
+	if (*ticks % 480 == 0)
 	{
 		i = -1;
 		while (res->utils->matrix[++i])

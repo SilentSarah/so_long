@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:42 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/14 12:37:15 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 11:41:42 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	initialize_data(t_data *tools, t_map *map_data)
 	map_data->damage = 0;
 	map_data->is_patrolling = false;
 	tools->is_running = false;
+	map_data->game_over = false;
 }
 
 bool	check_remaining_items(char **test_map)

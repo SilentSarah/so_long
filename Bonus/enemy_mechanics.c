@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:13:53 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 10:54:57 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 11:49:58 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ void	health_system_check(t_textures *res)
 		spawn_new_enemy(res->utils);
 		res->mlx_data->map_data->enemies++;
 	}
+	if (map_data->coins == 0)
+	{
+		map_data->damage = 2;
+		map_data->players = 0;
+		display_game_over_screen(res);
+	}
 }
 
 void	display_game_over_screen(t_textures *res)
@@ -66,4 +72,15 @@ void	display_game_over_screen(t_textures *res)
 		get_color(255, 255, 255, 255), "Press ESC to end the game.");
 	mlx_put_image_to_window(res->mlx_data->init, res->mlx_data->win,
 		res->txt[34], (res->utils->length * 26), (res->utils->height * 40));
+}
+
+void	display_game_instructions(t_textures *res)
+{
+	res->mlx_data->map_data->players = 0;
+	mlx_clear_window(res->mlx_data->init, res->mlx_data->win);
+	mlx_put_image_to_window(res->mlx_data->init, res->mlx_data->win,
+		res->txt[35], (res->utils->length * 28), (res->utils->height * 39));
+	mlx_string_put(res->mlx_data->init, res->mlx_data->win,
+		(res->utils->length * 28), (res->utils->height * 48),
+		get_color(255, 255, 255, 255), "Press ENTER to start the game.");
 }

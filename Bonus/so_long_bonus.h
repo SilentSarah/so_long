@@ -6,7 +6,7 @@
 /*   By: hmeftah <hmeftah@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:17:31 by hmeftah           #+#    #+#             */
-/*   Updated: 2023/02/15 15:23:52 by hmeftah          ###   ########.fr       */
+/*   Updated: 2023/02/18 11:41:22 by hmeftah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@
 //GAME OVER SPRITE
 # define G_O "./textures/Bonus/GameOver/GameOver.xpm"
 
+//Game Start Sprite
+# define G_S "./textures/Bonus/GameStart/1337_logo.xpm"
+
 # define MAX_MAP_SIZE 1000000
 # define RES_MULTIPLIER 64
 
@@ -91,6 +94,7 @@ typedef struct t_map {
 	int		s_moves;
 	int		damage;
 	bool	is_patrolling;
+	bool	game_over;
 }	t_map;
 
 typedef struct t_mlx {
@@ -115,7 +119,7 @@ typedef struct t_data {
 }	t_data;
 
 typedef struct t_textures {
-	void		*txt[35];
+	void		*txt[36];
 	t_mlx		*mlx_data;
 	t_data		*utils;
 }	t_textures;
@@ -181,4 +185,5 @@ void		display_game_over_screen(t_textures *res);
 void		update_frames(t_textures *res, int *ticks);
 void		display_counters(t_textures *res);
 void		check_for_rdata_inside(char *raw_map, t_data *tools);
+void		display_game_instructions(t_textures *res);
 #endif
